@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="-ml-2 mr-2 flex items-center md:hidden">
+                        <!-- Mobile menu button -->
+                        <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" class="text-2xl font-bold text-indigo-600">My Blog</a>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium">
+                            About
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">
+                Welcome to My Blog
+            </h1>
+            <p class="mt-2 text-gray-600">Insights, Stories, and Tips</p>
+        </div>
+    </header>
+
+    <!-- Blog Posts -->
+    <main class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Blog Post 1 -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <img src="https://via.placeholder.com/400" alt="Blog Post Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-2">Blog Post Title 1</h2>
+                    <p class="text-gray-700 mb-4">A brief description of the blog post content.</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Read more</a>
+                </div>
+            </div>
+            <!-- Blog Post 2 -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <img src="https://via.placeholder.com/400" alt="Blog Post Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-2">Blog Post Title 2</h2>
+                    <p class="text-gray-700 mb-4">A brief description of the blog post content.</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Read more</a>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <img src="https://via.placeholder.com/400" alt="Blog Post Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-2">Blog Post Title 3</h2>
+                    <p class="text-gray-700 mb-4">A brief description of the blog post content.</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Read more</a>
+                </div>
+            </div>
+            <!-- More blog posts can be added in the same structure -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-10">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500">&copy; 2024 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
