@@ -6,36 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Set the map container height */
+        #map {
+            height: 300px; /* Adjust the height as needed */
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 h-screen flex items-center justify-center">
-    <div class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
-        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-        <form action="#" method="POST">
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your Email"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-            </div>
-            <div class="mb-4">
-                <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-            </div>
-            <div class="mb-4">
-                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                <textarea id="message" name="message" rows="4"
-                    class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-            </div>
-            <button type="submit"
-                class="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition-colors duration-300">Send</button>
-        </form>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div class="bg-white rounded-md shadow-md p-6 w-full max-w-lg flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
+        <!-- Google Map -->
+        <div id="map" class="flex-shrink-0"></div>
+        <!-- Contact form -->
+        <div class="flex-grow">
+            <h1 class="text-2xl font-bold mb-6">Contact Us</h1>
+            <form action="#" method="POST" class="space-y-4">
+                {% csrf_token%}
+                <div>
+                    <label for="name" class="block font-semibold">Name:</label>
+                    <input type="text" id="name" name="name" required
+                        class="block w-full border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring focus:border-blue-300">
+                </div>
+
+                <div>
+                    <label for="subject" class="block font-semibold">Subject:</label>
+                    <input type="text" id="subject" name="subject" required
+                        class="block w-full border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring focus:border-blue-300">
+                </div>
+                <div>
+                    <label for="email" class="block font-semibold">Email:</label>
+                    <input type="email" id="email" name="email" required
+                        class="block w-full border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring focus:border-blue-300">
+                </div>
+                <div>
+                    <label for="message" class="block font-semibold">Message:</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="block w-full border border-gray-300 rounded-md px-3 py-1 resize-none focus:outline-none focus:ring focus:border-blue-300"></textarea>
+                </div>
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+                    Submit
+                </button>
+            </form>
+        </div>
     </div>
+
+    <!-- Include Google Maps JavaScript API with your API key -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        async defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 37.7749, lng: -122.4194 }, // Example coordinates (San Francisco)
+                zoom: 13, // Adjust the zoom level as needed
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .import models
 from .scraper import scrape_website
+from django.contrib import messages
 # Create your views here.
 def index(request):
     context = {
@@ -11,6 +12,14 @@ def index(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        models.Contact.objects.create(name = name , email = email , subject = subject , message = message)
+        messages.success(request, 'Thank You for Your Contact us')
+        return redirect('index')
     return render(request,'contact.html')
 
 
