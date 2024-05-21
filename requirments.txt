@@ -1,9 +1,16 @@
 asgiref==3.8.1
+beautifulsoup4==4.12.3
+certifi==2024.2.2
+charset-normalizer==3.3.2
 diff-match-patch==20230430
 Django==5.0.6
 django-import-export==4.0.3
+idna==3.7
 pillow==10.3.0
+requests==2.32.1
 setuptools==69.5.1
+soupsieve==2.5
 sqlparse==0.5.0
 tablib==3.5.0
 tzdata==2024.1
+urllib3==2.2.1

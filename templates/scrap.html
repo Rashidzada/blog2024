@@ -1,0 +1,61 @@
+<!-- templates/scrap.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraping with Django</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <h1 class="text-3xl font-bold mb-6">Web Scraping with Django</h1>
+    <form method="POST" class="flex items-center space-x-4 mb-4">
+        {% csrf_token %}
+        <label for="url" class="font-semibold">Enter URL:</label>
+        <input type="text" id="url" name="url" required
+            class="border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring focus:border-blue-300">
+        <button type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+            Scrape
+        </button>
+    </form>
+
+    {% if data %}
+    <div class="bg-white rounded-md shadow-md p-4 w-full max-w-lg">
+        <h2 class="text-xl font-bold mb-2">Scraped Data</h2>
+        <ul class="list-disc list-inside">
+            {% for item in data %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <div class="mt-4 flex items-center space-x-4">
+            <button onclick="copyAllData()"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+                Copy All
+            </button>
+            <button onclick="clearData()"
+                class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-md focus:outline-none focus:ring focus:border-red-300">
+                Clear
+            </button>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- JavaScript for copying and clearing data -->
+    <script>
+        function copyAllData() {
+            const dataText = document.querySelector('.list-disc').innerText;
+            navigator.clipboard.writeText(dataText);
+            alert('Data copied to clipboard!');
+        }
+
+        function clearData() {
+            document.querySelector('.list-disc').innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>
